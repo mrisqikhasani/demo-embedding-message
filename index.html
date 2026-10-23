@@ -1,581 +1,592 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maison Amare Studio | The First Korean Custom Perfume Bar in Indonesia</title>
+    <title>Halo, ada yang bisa kami bantu? | Eiger Adventure Official (Demo)</title>
 
-    <!-- SEO Meta Tags -->
+    <!-- SEO & Font -->
     <meta name="description"
-        content="Discover Maison Amare Studio, the first Korean custom perfume bar in Indonesia at Mall Taman Anggrek. Experience custom perfume making, KPIA certified workshops, and scent exploration.">
-    <meta name="keywords"
-        content="Maison Amare Studio, Korean Perfume Bar, Custom Perfume Bar Jakarta, KPIA Workshop, Mall Taman Anggrek Perfume">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts: Unbounded & Lato -->
+        content="Lengkapi kebutuhan outdoor kamu bersama EIGER Adventure. Bantuan, FAQ, & Customer Service.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Unbounded:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        unbounded: ['Unbounded', 'sans-serif'],
-                        lato: ['Lato', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            black: '#000000',
-                            dark: '#0c0c0e',
-                            card: '#121214',
-                            accent: '#d4af37',
-                            accentHover: '#c29f2e',
-                            muted: '#a1a1aa',
-                            border: '#27272a',
-                            glow: 'rgba(212, 175, 55, 0.15)'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
     <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
+        :root {
+            --font-family: 'Albert Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --color-primary: #e31e24;
+            /* Eiger Red Accent */
+            --color-black: #1a1a1a;
+            --color-dark-gray: #2d2d2d;
+            --color-light-gray: #f4f4f5;
+            --color-border: #e4e4e7;
+            --color-text-muted: #71717a;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: #ffffff;
+            color: var(--color-black);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ================= WATERMARK BADGE ================= */
+        .demo-watermark-badge {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            z-index: 9999;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-watermark-badge::before {
+            content: "";
+            display: inline-block;
             width: 8px;
+            height: 8px;
+            background-color: #f59e0b;
+            /* Amber Dot */
+            border-radius: 50%;
         }
 
-        ::-webkit-scrollbar-track {
-            background: #000000;
+        /* ================= HEADER & NAV ================= */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--color-black);
+            color: #ffffff;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: #27272a;
-            border-radius: 4px;
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 6px 40px;
+            background-color: #0d0d0d;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #3f3f46;
+        .top-bar ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
         }
 
-        /* Backdrop Glass Effect */
-        .glass-nav {
-            background: rgba(0, 0, 0, 0.82);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        .top-bar a {
+            color: #a1a1aa;
+            transition: color 0.2s;
         }
 
-        .glass-card {
-            background: rgba(18, 18, 20, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        .top-bar a:hover {
+            color: #ffffff;
         }
 
-        /* Subtle ambient animation */
-        @keyframes pulseGlow {
+        .main-nav {
+            height: var(--header-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
 
-            0%,
-            100% {
-                opacity: 0.3;
-                transform: scale(1);
+        .logo img {
+            height: 36px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-categories {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+        }
+
+        .nav-categories a {
+            font-weight: 600;
+            font-size: 15px;
+            color: #ffffff;
+            transition: color 0.2s;
+            padding: 22px 0;
+        }
+
+        .nav-categories a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ================= HERO SEARCH SECTION ================= */
+        .hero-search {
+            background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 16px 20px 16px 52px;
+            border-radius: 99px;
+            border: 1px solid transparent;
+            font-size: 16px;
+            font-family: var(--font-family);
+            outline: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: border 0.2s;
+        }
+
+        .search-box input:focus {
+            border: 2px solid var(--color-primary);
+        }
+
+        .search-box svg {
+            position: absolute;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            stroke: #71717a;
+        }
+
+        /* ================= MAIN CONTENT / FAQ ================= */
+        .content-wrapper {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-light-gray);
+        }
+
+        .faq-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .faq-header a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        /* Category Chips */
+        .chips-group {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+        }
+
+        .chip-btn {
+            padding: 10px 20px;
+            background-color: var(--color-light-gray);
+            border: 1px solid var(--color-border);
+            border-radius: 99px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-dark-gray);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .chip-btn.active,
+        .chip-btn:hover {
+            background-color: var(--color-black);
+            color: #ffffff;
+            border-color: var(--color-black);
+        }
+
+        /* Accordion List */
+        .accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: border 0.2s;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 18px 24px;
+            background: #ffffff;
+            border: none;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-black);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: var(--font-family);
+        }
+
+        .accordion-header:hover {
+            background-color: #fafafa;
+        }
+
+        .accordion-icon {
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 24px;
+            background-color: #fafafa;
+            color: var(--color-text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+            padding: 16px 24px 24px 24px;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background-color: var(--color-black);
+            color: #ffffff;
+            margin-top: 80px;
+        }
+
+        .footer-support {
+            background-color: #111111;
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-support h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .support-card {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 24px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .support-card svg {
+            margin-bottom: 12px;
+        }
+
+        .support-card span {
+            font-size: 14px;
+            color: #a1a1aa;
+        }
+
+        .support-card a {
+            font-weight: 700;
+            color: #ffffff;
+            margin-top: 4px;
+            font-size: 16px;
+        }
+
+        .footer-bottom {
+            padding: 30px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            font-size: 13px;
+            color: #71717a;
+        }
+
+        /* Responsive Breakdown */
+        @media (max-width: 768px) {
+
+            .top-bar,
+            .nav-categories {
+                display: none;
             }
 
-            50% {
-                opacity: 0.6;
-                transform: scale(1.05);
+            .main-nav,
+            .footer-bottom {
+                padding: 0 20px;
             }
-        }
 
-        .ambient-glow {
-            animation: pulseGlow 8s infinite ease-in-out;
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 
-<body
-    class="bg-brand-black text-gray-100 font-lato antialiased selection:bg-brand-accent selection:text-black min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body>
 
-    <!-- Ambient Light Orbs -->
-    <div
-        class="fixed top-1/4 -left-32 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl pointer-events-none ambient-glow">
+    <!-- Floating Watermark Penanda Mockup / Demo -->
+    <div class="demo-watermark-badge">
+        DEMO / MOCKUP VERSION
     </div>
-    <div class="fixed bottom-1/3 -right-32 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl pointer-events-none ambient-glow"
-        style="animation-delay: 4s;"></div>
 
-    <!-- 1. HEADER / NAVIGATION BAR -->
-    <header class="sticky top-0 z-50 glass-nav border-b border-brand-border/60 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-
-            <!-- Brand Logo -->
-            <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
-                <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/A85wPegPopU8Wwn6/logo-export-40---reduced-AoPvjWzP1jc2zJql.png"
-                    alt="Maison Amare Studio Logo"
-                    class="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                    onerror="this.src='https://placehold.co/280x40/000/fff?text=Maison+Amare+Studio'">
-            </a>
-
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden lg:flex items-center space-x-6 xl:space-x-7">
-                <a href="#hero"
-                    class="font-unbounded text-xs tracking-wider uppercase text-brand-accent font-semibold transition-colors">Home</a>
-                <a href="#catalog"
-                    class="font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent transition-colors">Fragrance
-                    Bar</a>
-                <a href="#workshops"
-                    class="font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent transition-colors">Workshop</a>
-                <a href="#workshops"
-                    class="font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent transition-colors">Kids</a>
-                <a href="#workshops"
-                    class="font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent transition-colors">Academy</a>
-                <a href="#catalog"
-                    class="font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent transition-colors">Shop</a>
-                <a href="#about"
-                    class="font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent transition-colors">Brand
-                    Collaboration</a>
-                <a href="#about"
-                    class="font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent transition-colors">About</a>
-            </nav>
-
-            <!-- Desktop CTA -->
-            <!-- <div class="hidden lg:flex items-center">
-        <a href="https://wa.me/+6282313349096?text=Hello%20Maison%20Amare%20Studio,%20I%20would%20like%20to%20reserve%20a%20slot%20at%20the%20Fragrance%20Bar!" 
-           target="_blank" 
-           class="px-5 py-2.5 rounded-full font-unbounded text-[11px] uppercase tracking-wider font-semibold text-black bg-brand-accent hover:bg-brand-accentHover transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-accent/20">
-          Book Experience
-        </a>
-      </div> -->
-
-            <!-- Mobile Navigation Hamburger -->
-            <button id="mobileMenuBtn" type="button"
-                class="lg:hidden p-2 rounded-lg text-gray-300 hover:text-white hover:bg-brand-card focus:outline-none"
-                aria-label="Toggle Navigation">
-                <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                </svg>
-                <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
-                </svg>
-            </button>
-
+    <!-- Top Info Bar -->
+    <header>
+        <div class="top-bar">
+            <ul>
+                <li><a href="https://www.eigerindo.co.id/" target="_blank" rel="noopener">Tentang</a></li>
+                <li><a href="#">Membership</a></li>
+                <li><a href="#">Cari Toko</a></li>
+                <li><a href="#">Bantuan</a></li>
+                <li><a href="#">Lifetime Warranty</a></li>
+                <li><a href="#">Sponsorship</a></li>
+                <li><a href="#">Corporate Order</a></li>
+            </ul>
         </div>
 
-        <!-- Mobile Drawer Nav -->
-        <div id="mobileMenu"
-            class="hidden lg:hidden border-b border-brand-border bg-brand-dark/95 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-2">
-            <a href="#hero"
-                class="mobile-link block px-3 py-2 rounded-lg font-unbounded text-xs tracking-wider uppercase text-brand-accent bg-brand-card">Home</a>
-            <a href="#catalog"
-                class="mobile-link block px-3 py-2 rounded-lg font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent hover:bg-brand-card/60">Fragrance
-                Bar</a>
-            <a href="#workshops"
-                class="mobile-link block px-3 py-2 rounded-lg font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent hover:bg-brand-card/60">Workshop</a>
-            <a href="#workshops"
-                class="mobile-link block px-3 py-2 rounded-lg font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent hover:bg-brand-card/60">Kids
-                & Academy</a>
-            <a href="#catalog"
-                class="mobile-link block px-3 py-2 rounded-lg font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent hover:bg-brand-card/60">Shop
-                Collection</a>
-            <a href="#about"
-                class="mobile-link block px-3 py-2 rounded-lg font-unbounded text-xs tracking-wider uppercase text-gray-300 hover:text-brand-accent hover:bg-brand-card/60">Brand
-                Collaboration & About</a>
-            <div class="pt-3">
-                <a href="https://wa.me/+6282313349096" target="_blank"
-                    class="block w-full text-center py-3 rounded-xl font-unbounded text-xs uppercase tracking-wider font-semibold text-black bg-brand-accent">
-                    Book Experience via WhatsApp
-                </a>
+        <!-- Main Navigation Bar -->
+        <div class="main-nav">
+            <a href="/" class="logo" title="Eiger Adventure Official">
+                <img src="https://www.eigeradventure.com/images/og-image-logo.webp" alt="Eiger Logo">
+            </a>
+
+            <ul class="nav-categories">
+                <li><a href="#">Pria</a></li>
+                <li><a href="#">Wanita</a></li>
+                <li><a href="#">Anak</a></li>
+                <li><a href="#">Equipment</a></li>
+                <li><a href="#">Koleksi</a></li>
+                <li><a href="#">Best Buy Before Bye</a></li>
+                <li><a href="#">International Brand</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" aria-label="Cari">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Keranjang">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+                <button class="icon-btn" aria-label="Masuk">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main>
-
-        <!-- 2. HERO SECTION -->
-        <section id="hero"
-            class="relative min-h-[calc(100vh-5rem)] flex items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
-            <!-- Background Image with Ambient Dark Vignette -->
-            <div class="absolute inset-0 z-0">
-                <img src="https://assets.zyrosite.com/A85wPegPopU8Wwn6/whatsapp-image-2024-12-11-at-21.09.56_902f2ef4-AR0y6pzNW8ij1N6J.jpg"
-                    alt="Maison Amare Perfume Background"
-                    class="w-full h-full object-cover object-center scale-105 filter brightness-75"
-                    onerror="this.src='https://placehold.co/1920x1080/111/fff?text=Maison+Amare+Studio'">
-                <!-- Dark Overlay Gradient -->
-                <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-black/70"></div>
-            </div>
-
-            <!-- Hero Text Content -->
-            <div class="relative z-10 max-w-4xl mx-auto space-y-6 sm:space-y-8 transform transition-all duration-700">
-                <div
-                    class="inline-flex items-center gap-2 font-unbounded text-[11px] sm:text-xs uppercase tracking-[0.25em] text-brand-accent px-4 py-2 rounded-full border border-brand-accent/40 bg-black/50 backdrop-blur-md shadow-inner">
-                    <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
-                    The First Korean Custom Perfume Bar in Indonesia
-                </div>
-
-                <h1
-                    class="font-unbounded font-extrabold text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-tight">
-                    Welcome to <span
-                        class="bg-gradient-to-r from-white via-gray-100 to-brand-accent bg-clip-text text-transparent">Maison
-                        Amare Studio</span>
-                </h1>
-
-                <p
-                    class="font-lato italic text-lg sm:text-2xl md:text-3xl text-gray-200 font-light max-w-3xl mx-auto leading-snug">
-                    Jakarta’s premium fragrance playground for curious hearts, creative minds, and scent lovers of all
-                    ages.
-                </p>
-
-                <p class="text-brand-muted text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
-                    Craft your personal scent identity using KPIA certified formulation techniques at Mall Taman
-                    Anggrek.
-                </p>
-
-                <!-- CTA Action Buttons -->
-                <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
-                    <a href="#catalog"
-                        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full font-unbounded text-xs sm:text-sm font-semibold tracking-wider text-black bg-brand-accent hover:bg-brand-accentHover transform hover:-translate-y-0.5 transition-all shadow-lg shadow-brand-accent/25">
-                        EXPLORE FRAGRANCE BAR
-                    </a>
-                    <a href="#workshops"
-                        class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full font-unbounded text-xs sm:text-sm font-semibold tracking-wider text-white bg-brand-card/80 hover:bg-brand-card border border-brand-border/80 backdrop-blur-md transform hover:-translate-y-0.5 transition-all">
-                        BOOK A WORKSHOP
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. INTERACTIVE CUSTOM PERFUME BAR / FRAGRANCE EXPLORATION -->
-        <section id="catalog" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-            <div class="text-center space-y-4 mb-12">
-                <span class="font-unbounded text-xs text-brand-accent uppercase tracking-widest">Scent Discovery</span>
-                <h2 class="font-unbounded text-2xl sm:text-4xl font-bold tracking-tight text-white">
-                    Explore Scent Families & Accords
-                </h2>
-                <p class="text-brand-muted text-sm sm:text-base max-w-2xl mx-auto">
-                    Filter through our licensed raw scent accords imported from Korea. Formulate top, heart, and base
-                    notes to create your signature fragrance.
-                </p>
-            </div>
-
-            <!-- Scent Category Filter Tabs -->
-            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12" id="tabContainer">
-                <button data-category="all"
-                    class="tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-accent bg-brand-accent text-black font-semibold transition-all shadow-md shadow-brand-accent/20">
-                    All Scents
-                </button>
-                <button data-category="floral"
-                    class="tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-border bg-brand-card text-gray-300 hover:text-white hover:border-brand-accent/50 font-medium transition-all">
-                    Floral
-                </button>
-                <button data-category="woody"
-                    class="tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-border bg-brand-card text-gray-300 hover:text-white hover:border-brand-accent/50 font-medium transition-all">
-                    Woody
-                </button>
-                <button data-category="citrus"
-                    class="tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-border bg-brand-card text-gray-300 hover:text-white hover:border-brand-accent/50 font-medium transition-all">
-                    Citrus & Green
-                </button>
-                <button data-category="musk"
-                    class="tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-border bg-brand-card text-gray-300 hover:text-white hover:border-brand-accent/50 font-medium transition-all">
-                    Musk & Powdery
-                </button>
-                <button data-category="gourmand"
-                    class="tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-border bg-brand-card text-gray-300 hover:text-white hover:border-brand-accent/50 font-medium transition-all">
-                    Gourmand & Special
-                </button>
-            </div>
-
-            <!-- Interactive Fragrance Grid -->
-            <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Dynamic Cards inserted by JavaScript -->
-            </div>
-        </section>
-
-        <!-- 4. WORKSHOPS & EXPERIENCE SECTION -->
-        <section id="workshops"
-            class="py-24 bg-gradient-to-b from-brand-black via-brand-dark to-brand-black border-y border-brand-border relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                <div class="text-center space-y-4 mb-16">
-                    <span class="font-unbounded text-xs text-brand-accent uppercase tracking-widest">Certified Korean
-                        Perfumery</span>
-                    <h2 class="font-unbounded text-2xl sm:text-4xl font-bold text-white">Workshops & Masterclasses</h2>
-                    <p class="text-brand-muted text-sm sm:text-base max-w-2xl mx-auto">
-                        Led by official instructors certified by the <strong>Korea Perfumer Instructor Association
-                            (KPIA)</strong>. Learn the art and chemistry of custom perfumery.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-
-                    <!-- Workshop 1 -->
-                    <div
-                        class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-brand-accent/60 transition-all duration-300 glass-card group">
-                        <div class="space-y-4">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3 class="font-unbounded text-base sm:text-lg font-semibold text-white">Custom Perfume
-                                Class</h3>
-                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed">
-                                KPIA Certified Master Class on ratio formulation, pyramid structure (Top, Heart, Base),
-                                and creating a 50ml bespoke bottle.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-brand-border/60 mt-6 flex items-center justify-between">
-                            <span class="text-[11px] font-unbounded text-brand-accent uppercase tracking-wider">KPI
-                                Certified</span>
-                            <a href="https://wa.me/+6282313349096?text=I%20am%20interested%20in%20the%20Custom%20Perfume%20Class"
-                                target="_blank" class="text-xs font-unbounded text-white hover:text-brand-accent">Book
-                                →</a>
-                        </div>
-                    </div>
-
-                    <!-- Workshop 2 -->
-                    <div
-                        class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-brand-accent/60 transition-all duration-300 glass-card group">
-                        <div class="space-y-4">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3 class="font-unbounded text-base sm:text-lg font-semibold text-white">Group & Corporate
-                            </h3>
-                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed">
-                                Tailored scent workshops for team building, private VIP gatherings, product launches,
-                                and brand activations.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-brand-border/60 mt-6 flex items-center justify-between">
-                            <span class="text-[11px] font-unbounded text-brand-accent uppercase tracking-wider">Group
-                                Gatherings</span>
-                            <a href="https://wa.me/+6282313349096?text=I%20am%20interested%20in%20a%20Group%20or%20Corporate%20Workshop"
-                                target="_blank"
-                                class="text-xs font-unbounded text-white hover:text-brand-accent">Inquire →</a>
-                        </div>
-                    </div>
-
-                    <!-- Workshop 3 -->
-                    <div
-                        class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-brand-accent/60 transition-all duration-300 glass-card group">
-                        <div class="space-y-4">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3 class="font-unbounded text-base sm:text-lg font-semibold text-white">Kids Fragrance
-                                Exploration</h3>
-                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed">
-                                Fun, safe, and imaginative olfactory sensory workshops designed for children and young
-                                fragrance enthusiasts.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-brand-border/60 mt-6 flex items-center justify-between">
-                            <span class="text-[11px] font-unbounded text-brand-accent uppercase tracking-wider">Kids
-                                Friendly</span>
-                            <a href="https://wa.me/+6282313349096?text=I%20would%20like%20to%20know%20more%20about%20Kids%20Fragrance%20Exploration"
-                                target="_blank" class="text-xs font-unbounded text-white hover:text-brand-accent">Book
-                                →</a>
-                        </div>
-                    </div>
-
-                    <!-- Workshop 4 -->
-                    <div
-                        class="bg-brand-card border border-brand-border rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-brand-accent/60 transition-all duration-300 glass-card group">
-                        <div class="space-y-4">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent group-hover:bg-brand-accent group-hover:text-black transition-all">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h3 class="font-unbounded text-base sm:text-lg font-semibold text-white">Seasonal Special
-                                Concepts</h3>
-                            <p class="text-xs sm:text-sm text-brand-muted leading-relaxed">
-                                Exclusive limited-edition scent blending themed sessions for holidays, anniversaries,
-                                and seasonal scent trends.
-                            </p>
-                        </div>
-                        <div class="pt-6 border-t border-brand-border/60 mt-6 flex items-center justify-between">
-                            <span class="text-[11px] font-unbounded text-brand-accent uppercase tracking-wider">Limited
-                                Edition</span>
-                            <a href="https://wa.me/+6282313349096?text=Tell%20me%20about%20your%20Seasonal%20Special%20Concept%20sessions"
-                                target="_blank"
-                                class="text-xs font-unbounded text-white hover:text-brand-accent">Inquire →</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- 5. LOCATION & CONTACT FOOTER -->
-    <footer id="about" class="bg-brand-black border-t border-brand-border pt-16 pb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-
-                <!-- About Studio -->
-                <div class="space-y-4">
-                    <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,fit=crop/A85wPegPopU8Wwn6/logo-export-40---reduced-AoPvjWzP1jc2zJql.png"
-                        alt="Maison Amare Studio Logo" class="h-8 w-auto mb-2"
-                        onerror="this.src='https://placehold.co/240x35/000/fff?text=Maison+Amare'">
-                    <p class="text-brand-muted text-sm leading-relaxed max-w-sm">
-                        The first Korean custom perfume bar in Indonesia, offering a unique blend of fragrance
-                        experiences, educational classes, and immersive concept workshops.
-                    </p>
-
-                    <!-- Social Icons -->
-                    <div class="flex items-center space-x-3 pt-3">
-                        <!-- Instagram -->
-                        <a href="https://www.instagram.com/maisonamare_studio/" target="_blank" rel="noopener"
-                            class="p-2.5 rounded-full bg-brand-card border border-brand-border text-gray-300 hover:text-brand-accent hover:border-brand-accent transition-all"
-                            aria-label="Instagram">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M12.0027 5.84808C8.59743 5.84808 5.85075 8.59477 5.85075 12C5.85075 15.4053 8.59743 18.1519 12.0027 18.1519C15.4079 18.1519 18.1546 15.4053 18.1546 12C18.1546 8.59477 15.4079 5.84808 12.0027 5.84808ZM12.0027 15.9996C9.80212 15.9996 8.00312 14.2059 8.00312 12C8.00312 9.7941 9.79677 8.00046 12.0027 8.00046C14.2086 8.00046 16.0022 9.7941 16.0022 12C16.0022 14.2059 14.2032 15.9996 12.0027 15.9996ZM19.8412 5.59644C19.8412 6.39421 19.1987 7.03135 18.4062 7.03135C17.6085 7.03135 16.9713 6.38885 16.9713 5.59644C16.9713 4.80402 17.6138 4.16153 18.4062 4.16153C19.1987 4.16153 19.8412 4.80402 19.8412 5.59644ZM23.9157 7.05277C23.8247 5.13063 23.3856 3.42801 21.9775 2.02522C20.5747 0.622429 18.8721 0.183388 16.9499 0.0870135C14.9689 -0.0254238 9.03112 -0.0254238 7.05008 0.0870135C5.1333 0.178034 3.43068 0.617075 2.02253 2.01986C0.614389 3.42265 0.180703 5.12527 0.0843279 7.04742C-0.0281093 9.02845 -0.0281093 14.9662 0.0843279 16.9472C0.175349 18.8694 0.614389 20.572 2.02253 21.9748C3.43068 23.3776 5.12794 23.8166 7.05008 23.913C9.03112 24.0254 14.9689 24.0254 16.9499 23.913C18.8721 23.822 20.5747 23.3829 21.9775 21.9748C23.3803 20.572 23.8193 18.8694 23.9157 16.9472C24.0281 14.9662 24.0281 9.03381 23.9157 7.05277Z" />
-                            </svg>
-                        </a>
-                        <!-- TikTok -->
-                        <a href="https://www.tiktok.com/@maisonamare_studio" target="_blank" rel="noopener"
-                            class="p-2.5 rounded-full bg-brand-card border border-brand-border text-gray-300 hover:text-brand-accent hover:border-brand-accent transition-all"
-                            aria-label="TikTok">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M22.5 9.84202C20.4357 9.84696 18.4221 9.20321 16.7435 8.00171V16.3813C16.7429 17.9333 16.2685 19.4482 15.3838 20.7233C14.499 21.9984 13.246 22.973 11.7923 23.5168C10.3387 24.0606 8.75362 24.1477 7.24914 23.7664C5.74466 23.3851 4.39245 22.5536 3.37333 21.383C2.3542 20.2125 1.71674 18.7587 1.54617 17.2161C1.3756 15.6735 1.68007 14.1156 2.41884 12.7507C3.15762 11.3858 4.2955 10.279 5.68034 9.57823C7.06517 8.87746 8.63095 8.61616 10.1683 8.82927V13.0439C9.46481 12.8227 8.70938 12.8293 8.0099 13.063C7.31041 13.2966 6.70265 13.7453 6.2734 14.345C5.84415 14.9446 5.61536 15.6646 5.6197 16.402C5.62404 17.1395 5.8613 17.8567 6.29759 18.4512C6.73387 19.0458 7.34688 19.4873 8.04906 19.7127C8.75125 19.9381 9.5067 19.9359 10.2075 19.7063C10.9084 19.4768 11.5188 19.0316 11.9515 18.4345C12.3843 17.8374 12.6173 17.1188 12.6173 16.3813V0H16.7435C16.7406 0.348435 16.7698 0.696395 16.8307 1.03948C16.9741 1.80537 17.2722 2.53396 17.7068 3.18068C18.1415 3.8274 18.7035 4.37867 19.3585 4.80075C20.2903 5.41688 21.3829 5.74528 22.5 5.74505V9.84202Z" />
-                            </svg>
-                        </a>
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/+6282313349096" target="_blank" rel="noopener"
-                            class="p-2.5 rounded-full bg-brand-card border border-brand-border text-gray-300 hover:text-brand-accent hover:border-brand-accent transition-all"
-                            aria-label="WhatsApp">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path
-                                    d="M20.4054 3.4875C18.1607 1.2375 15.1714 0 11.9946 0C5.4375 0 0.101786 5.33571 0.101786 11.8929C0.101786 13.9875 0.648214 16.0339 1.6875 17.8393L0 24L6.30536 22.3446C8.04107 23.2929 9.99643 23.7911 11.9893 23.7911H11.9946C18.5464 23.7911 24 18.4554 24 11.8982C24 8.72143 22.65 5.7375 20.4054 3.4875ZM11.9946 21.7875C10.2161 21.7875 8.475 21.3107 6.95893 20.4107L6.6 20.1964L2.86071 21.1768L3.85714 17.5286L3.62143 17.1536C2.63036 15.5786 2.11071 13.7625 2.11071 11.8929C2.11071 6.44464 6.54643 2.00893 12 2.00893C14.6411 2.00893 17.1214 3.0375 18.9857 4.90714C20.85 6.77679 21.9964 9.25714 21.9911 11.8982C21.9911 17.3518 17.4429 21.7875 11.9946 21.7875ZM17.4161 14.3839C17.1214 14.2339 15.6589 13.5161 15.3857 13.4196C15.1125 13.3179 14.9143 13.2696 14.7161 13.5696C14.5179 13.8696 13.95 14.5339 13.7732 14.7375C13.6018 14.9357 13.425 14.9625 13.1304 14.8125C11.3839 13.9393 10.2375 13.2536 9.08571 11.2768C8.78036 10.7518 9.39107 10.7893 9.95893 9.65357C10.0554 9.45536 10.0071 9.28393 9.93214 9.13393C9.85714 8.98393 9.2625 7.52143 9.01607 6.92679C8.775 6.34821 8.52857 6.42857 8.34643 6.41786C8.175 6.40714 7.97679 6.40714 7.77857 6.40714C7.58036 6.40714 7.25893 6.48214 6.98571 6.77679C6.7125 7.07679 5.94643 7.79464 5.94643 9.25714C5.94643 10.7196 7.0125 12.1339 7.15714 12.3321C7.30714 12.5304 9.25179 15.5304 12.2357 16.8214C14.1214 17.6357 14.8607 17.7054 15.8036 17.5661C16.3768 17.4804 17.5607 16.8482 17.8071 16.1518C18.0536 15.4554 18.0536 14.8607 17.9786 14.7375C17.9089 14.6036 17.7107 14.5286 17.4161 14.3839Z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Location -->
-                <div class="space-y-4">
-                    <h5 class="font-unbounded font-bold text-base text-white tracking-wider">LOCATION</h5>
-                    <p class="text-brand-muted text-sm leading-relaxed">
-                        <strong class="text-white">Maison Amare Studio</strong><br>
-                        Mall Taman Anggrek, Lt. G<br>
-                        Jl. Letjen S. Parman No.28, Jakarta Barat<br>
-                        DKI Jakarta 11470
-                    </p>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="space-y-4">
-                    <h5 class="font-unbounded font-bold text-base text-white tracking-wider">CONTACT US</h5>
-                    <div class="text-brand-muted text-sm space-y-2">
-                        <p class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            <a href="mailto:askmaisonamare@gmail.com"
-                                class="hover:text-brand-accent transition-colors">askmaisonamare@gmail.com</a>
-                        </p>
-                        <p class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1.01 1.01 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                                </path>
-                            </svg>
-                            <a href="https://wa.me/+6282313349096" target="_blank"
-                                class="hover:text-brand-accent transition-colors">+62 823 1334 9096</a>
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Copyright Subfooter -->
-            <div
-                class="pt-8 border-t border-brand-border/40 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-muted">
-                <p>© 2026 Maison Amare Studio. All rights reserved.</p>
-                <p class="text-gray-500">The First Korean Custom Perfume Bar in Indonesia</p>
-            </div>
-
-        </div>
-    </footer>
-
-    <!-- 6. FLOATING WHATSAPP BUTTON -->
-    <!-- <a href="https://wa.me/+6282313349096" 
-     target="_blank" 
-     rel="noopener"
-     class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-3.5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 flex items-center justify-center group"
-     aria-label="Chat on WhatsApp">
-    <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-      <path d="M20.4054 3.4875C18.1607 1.2375 15.1714 0 11.9946 0C5.4375 0 0.101786 5.33571 0.101786 11.8929C0.101786 13.9875 0.648214 16.0339 1.6875 17.8393L0 24L6.30536 22.3446C8.04107 23.2929 9.99643 23.7911 11.9893 23.7911H11.9946C18.5464 23.7911 24 18.4554 24 11.8982C24 8.72143 22.65 5.7375 20.4054 3.4875ZM11.9946 21.7875C10.2161 21.7875 8.475 21.3107 6.95893 20.4107L6.6 20.1964L2.86071 21.1768L3.85714 17.5286L3.62143 17.1536C2.63036 15.5786 2.11071 13.7625 2.11071 11.8929C2.11071 6.44464 6.54643 2.00893 12 2.00893C14.6411 2.00893 17.1214 3.0375 18.9857 4.90714C20.85 6.77679 21.9964 9.25714 21.9911 11.8982C21.9911 17.3518 17.4429 21.7875 11.9946 21.7875ZM17.4161 14.3839C17.1214 14.2339 15.6589 13.5161 15.3857 13.4196C15.1125 13.3179 14.9143 13.2696 14.7161 13.5696C14.5179 13.8696 13.95 14.5339 13.7732 14.7375C13.6018 14.9357 13.425 14.9625 13.1304 14.8125C11.3839 13.9393 10.2375 13.2536 9.08571 11.2768C8.78036 10.7518 9.39107 10.7893 9.95893 9.65357C10.0554 9.45536 10.0071 9.28393 9.93214 9.13393C9.85714 8.98393 9.2625 7.52143 9.01607 6.92679C8.775 6.34821 8.52857 6.42857 8.34643 6.41786C8.175 6.40714 7.97679 6.40714 7.77857 6.40714C7.58036 6.40714 7.25893 6.48214 6.98571 6.77679C6.7125 7.07679 5.94643 7.79464 5.94643 9.25714C5.94643 10.7196 7.0125 12.1339 7.15714 12.3321C7.30714 12.5304 9.25179 15.5304 12.2357 16.8214C14.1214 17.6357 14.8607 17.7054 15.8036 17.5661C16.3768 17.4804 17.5607 16.8482 17.8071 16.1518C18.0536 15.4554 18.0536 14.8607 17.9786 14.7375C17.9089 14.6036 17.7107 14.5286 17.4161 14.3839Z"/>
-    </svg>
-    <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 ease-in-out font-unbounded text-xs ml-0 group-hover:ml-2 font-semibold">
-      Chat with Us
-    </span>
-  </a> -->
-
-    <!-- EXPLOER NOTES / QUICK VIEW MODAL POPUP -->
-    <div id="quickViewModal"
-        class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-        <div
-            class="relative bg-brand-card border border-brand-border rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-6 text-gray-100 glass-card">
-
-            <!-- Close Button -->
-            <button id="closeModalBtn" type="button"
-                class="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-lg bg-black/40 hover:bg-black/80 transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
-                    </path>
+    <!-- Hero Search Section -->
+    <section class="hero-search">
+        <div class="hero-container">
+            <h1 class="hero-title">Halo, ada yang bisa kami bantu?</h1>
+            <div class="search-box">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
-            </button>
-
-            <!-- Dynamic Content Injection -->
-            <div id="modalBody" class="space-y-4">
-                <!-- Injected via JS -->
-            </div>
-
-            <div class="pt-4 border-t border-brand-border/60 flex justify-end">
-                <a id="modalWaBtn" href="https://wa.me/+6282313349096" target="_blank"
-                    class="w-full sm:w-auto text-center px-6 py-3 rounded-full font-unbounded text-xs font-semibold text-black bg-brand-accent hover:bg-brand-accentHover transition-colors">
-                    Inquire / Blend This Scent
-                </a>
+                <input type="text" id="searchInput" placeholder="Cari pertanyaan, kendala, atau informasi pesanan...">
             </div>
         </div>
+    </section>
+
+    <!-- Main FAQ Section -->
+    <div class="content-wrapper">
+        <section class="faq-section">
+            <div class="faq-header">
+                <h2>FAQ (Pertanyaan Populer)</h2>
+                <a href="#">Lihat Selengkapnya &rarr;</a>
+            </div>
+
+            <!-- Filter Category Chips -->
+            <div class="chips-group">
+                <button class="chip-btn active" onclick="filterCategory('all', this)">Semua Pertanyaan</button>
+                <button class="chip-btn" onclick="filterCategory('pesanan', this)">Pesanan & Pengiriman</button>
+                <button class="chip-btn" onclick="filterCategory('pembayaran', this)">Pembayaran</button>
+                <button class="chip-btn" onclick="filterCategory('garansi', this)">Garansi & Retur</button>
+                <button class="chip-btn" onclick="filterCategory('membership', this)">Eiger Club / Membership</button>
+            </div>
+
+            <!-- Accordion Items -->
+            <div class="accordion">
+                <div class="accordion-item" data-category="pesanan">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Bagaimana cara melacak pesanan saya?</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Anda dapat melacak pesanan melalui menu Akun Saya > Riwayat Pesanan. Nomor resi pengiriman
+                            akan terupdate otomatis setelah paket diserahkan ke pihak kurir.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" data-category="pembayaran">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Metode pembayaran apa saja yang tersedia?</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Kami menerima pembayaran melalui Transfer Bank Virtual Account (BCA, Mandiri, BRI, BNI),
+                            Kartu Kredit/Debit, E-Wallet (Gopay, OVO, ShopeePay), serta pembayaran tunai melalui
+                            Indomaret/Alfamart.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" data-category="garansi">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Bagaimana prosedur klaim Lifetime Warranty EIGER?</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Klaim garansi dapat dilakukan dengan membawa produk beserta bukti pembelian ke EIGER
+                            Adventure Store terdekat atau mengajukan secara online melalui halaman Lifetime Warranty.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" data-category="pesanan">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Berapa lama estimasi pengiriman barang?</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Estimasi pengiriman untuk area Jabodetabek adalah 1-3 hari kerja, sedangkan untuk luar
+                            Jabodetabek berkisar 3-7 hari kerja tergantung wilayah lokasi tujuan.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item" data-category="membership">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Apa keuntungan bergabung dengan Eiger Club?</span>
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Anggota Eiger Club mendapatkan poin dari setiap transaksi, voucher ulang tahun eksklusif,
+                            serta akses awal (*early access*) ke produk edisi terbatas dan promo khusus member.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <!-- Footer Support & Copyright -->
+    <footer>
+        <div class="footer-support">
+            <h3>Masih memerlukan bantuan? Kami siap membantu!</h3>
+            <div class="support-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                    stroke="#ffffff" stroke-width="1.5">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>Email Customer Care</span>
+                <a href="mailto:cs@eigeradventure.com">cs@eigeradventure.com</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <a href="/" class="logo">
+                <img src="https://www.eigeradventure.com/images/og-image-logo.webp" alt="Eiger Logo"
+                    style="height:30px;">
+            </a>
+            <p class="copyright">Copyright &copy; 2026 Eigerindo Multi Produk Industri, Inc. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script type='text/javascript'>
         function initEmbeddedMessaging() {
@@ -583,11 +594,11 @@
                 embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
                 embeddedservice_bootstrap.init(
-                    '00DHu00000yv5as',
-                    'LiveChat',
-                    'https://pt1775550561975.my.site.com/ESWLiveChat1792135744669',
+                    '00DHo000007Bc6T',
+                    'Live_Chat_Web',
+                    'https://pt1748845558060.my.site.com/ESWLiveChatWeb1772764395058',
                     {
-                        scrt2URL: 'https://pt1775550561975.my.salesforce-scrt.com'
+                        scrt2URL: 'https://pt1748845558060.my.salesforce-scrt.com'
                     }
                 );
             } catch (err) {
@@ -596,294 +607,56 @@
         };
     </script>
     <script type='text/javascript'
-        src='https://pt1775550561975.my.site.com/ESWLiveChat1792135744669/assets/js/bootstrap.min.js'
+        src='https://pt1748845558060.my.site.com/ESWLiveChatWeb1772764395058/assets/js/bootstrap.min.js'
         onload='initEmbeddedMessaging()'></script>
 
 
-    <!-- JAVASCRIPT APP LOGIC -->
     <script>
-        // 1. Complete Catalog Dataset with all requested samples
-        const perfumeData = [
-            {
-                id: '1',
-                title: 'Tomato Leaves',
-                koreanTitle: '토마토 리브스',
-                category: 'citrus',
-                profile: 'Fresh Green Aromatic',
-                topNotes: 'Crisp Tomato Leaf, Stem Greens',
-                heartNotes: 'Wild Thyme, Galbanum',
-                baseNotes: 'Earthy Vetiver, Oakmoss',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1733988025767-123.png',
-                description: 'Discover the invigorating zest of fresh tomato leaves. Handpicked for their green aromatic, garden-fresh botanical brilliance.',
-                code: 'A30',
-                longevity: '3/5 (Moderate)'
-            },
-            {
-                id: '2',
-                title: 'Cactus Garden',
-                koreanTitle: '칵투스 가든',
-                category: 'citrus',
-                profile: 'Refreshing Citrus & Green',
-                topNotes: 'Calabrian Bergamot, Lemongrass',
-                heartNotes: 'Mate Tea, Desert Succulents',
-                baseNotes: 'Clean White Musk, Cedar',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1733989639975-118.png',
-                description: 'A distinctive and uplifting botanical blend inspired by sunlit desert gardens and zesty citrus accord notes.',
-                code: 'A26',
-                longevity: '3/5 (Moderate)'
-            },
-            {
-                id: '3',
-                title: 'When the Rain Stops',
-                koreanTitle: '웬 더 레인 스탑스',
-                category: 'citrus',
-                profile: 'Aquatic Fresh Aromatic',
-                topNotes: 'Rain Accord, Bergamot',
-                heartNotes: 'Isparta Rose Petals, Pink Pepper',
-                baseNotes: 'Pine Tree Needle, Moss, Patchouli',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1733990912354-110.png',
-                description: 'Captures the nostalgic ambiance of wet earth after a spring shower and fresh blooming flora under soft sunlight.',
-                code: 'AQ05',
-                longevity: '4/5 (Long-lasting)'
-            },
-            {
-                id: '4',
-                title: 'Thé Noir 29',
-                koreanTitle: '떼누아 29',
-                category: 'woody',
-                profile: 'Woody Fig & Black Tea',
-                topNotes: 'Fig, Bay Leaf, Bergamot',
-                heartNotes: 'Cedarwood, Vetiver, Black Tea',
-                baseNotes: 'Tobacco Leaf, Hay, Musk',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1733994999906-128.png',
-                description: 'An ode to black tea leaves with complex woody layers of fig, cedar, and smoky tobacco depth.',
-                code: 'W18',
-                longevity: '5/5 (Intense)'
-            },
-            {
-                id: '5',
-                title: 'White Suede',
-                koreanTitle: '화이트 스웨이드',
-                category: 'musk',
-                profile: 'Soft Musk & Supple Leather',
-                topNotes: 'Thyme, Saffron, Tea',
-                heartNotes: 'Lily-of-the-Valley, Rose, Suede',
-                baseNotes: 'Amber, Sandalwood, Warm Musk',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1733995965874-91.png',
-                description: 'An elegant composition combining soft powdery white musk with smooth, velvety leather and subtle spice.',
-                code: 'M12',
-                longevity: '4/5 (Long-lasting)'
-            },
-            {
-                id: '6',
-                title: 'Lazy Sunday Morning',
-                koreanTitle: '레이지 선데이 모닝',
-                category: 'floral',
-                profile: 'Clean Powdery Floral',
-                topNotes: 'Aldehydes, Pear, Lily-of-the-Valley',
-                heartNotes: 'Iris, Rose, Orange Blossom',
-                baseNotes: 'White Musk, Ambrette, Patchouli',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1733996669067-81.png',
-                description: 'Recreates the peaceful sensation of freshly washed linen sheets warming under soft morning light.',
-                code: 'M01',
-                longevity: '3/5 (Moderate)'
-            },
-            {
-                id: '7',
-                title: 'Sugarcane & Vanilla',
-                koreanTitle: '사탕수수밭 & 바닐라',
-                category: 'gourmand',
-                profile: 'Gourmand Sweet & Creamy',
-                topNotes: 'Golden Sugarcane, Coconut Nectar',
-                heartNotes: 'Warm Madagascar Vanilla',
-                baseNotes: 'Tonka Bean, Caramelized Amber',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1733997634259-153.png',
-                description: 'An addictive gourmand scent bringing together raw sugarcane sweetness with rich, comforting vanilla bean.',
-                code: 'G04',
-                longevity: '4/5 (Long-lasting)'
-            },
-            {
-                id: '8',
-                title: 'English Pear & Freesia',
-                koreanTitle: '잉글리쉬 페어 & 프리지아',
-                category: 'floral',
-                profile: 'Juicy Floral Fruity',
-                topNotes: 'King William Pear, Melon',
-                heartNotes: 'White Freesia, Rose',
-                baseNotes: 'Patchouli, Amber, Rhubarb',
-                image: 'https://cdn.zyrosite.com/cdn-ecommerce/store_01JERFQ7QH5BT2FWVFE3X8WH2N%2Fassets%2F1734000996526-31.png',
-                description: 'Sensuous freshness of just-ripe pears wrapped in a bouquet of white freesias and mellowed by amber.',
-                code: 'FB15',
-                longevity: '4/5 (Long-lasting)'
-            }
-        ];
+        // Accordion Toggle Logic
+        function toggleAccordion(element) {
+            const currentItem = element.parentElement;
+            const allItems = document.querySelectorAll('.accordion-item');
 
-        // 2. Render Cards
-        const productGrid = document.getElementById('productGrid');
+            allItems.forEach(item => {
+                if (item !== currentItem) {
+                    item.classList.remove('active');
+                }
+            });
 
-        function renderProducts(category = 'all') {
-            productGrid.innerHTML = '';
+            currentItem.classList.toggle('active');
+        }
 
-            const filtered = category === 'all'
-                ? perfumeData
-                : perfumeData.filter(item => item.category === category);
+        // Category Filter Logic
+        function filterCategory(category, btnElement) {
+            const buttons = document.querySelectorAll('.chip-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
 
-            if (filtered.length === 0) {
-                productGrid.innerHTML = `
-          <div class="col-span-full text-center py-12 text-brand-muted font-unbounded text-xs">
-            No scent accords found in this category.
-          </div>
-        `;
-                return;
-            }
-
-            filtered.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'bg-brand-card border border-brand-border rounded-2xl overflow-hidden hover:border-brand-accent/70 transition-all duration-300 flex flex-col justify-between group glass-card';
-
-                card.innerHTML = `
-          <div>
-            <div class="relative h-48 bg-black/50 overflow-hidden flex items-center justify-center p-4">
-              <img 
-                src="${item.image}" 
-                alt="${item.title}" 
-                class="max-h-full max-w-full object-contain transform group-hover:scale-105 transition-transform duration-300 filter drop-shadow-lg"
-                onerror="this.src='https://placehold.co/300x300/18181a/d4af37?text=Maison+Amare'"
-              >
-              <span class="absolute top-3 left-3 bg-black/80 border border-brand-border text-brand-accent font-unbounded text-[10px] px-2.5 py-1 rounded-full uppercase tracking-wider">
-                ${item.code}
-              </span>
-            </div>
-            
-            <div class="p-5 space-y-2">
-              <div class="flex items-baseline justify-between gap-2">
-                <h4 class="font-unbounded font-semibold text-sm text-white group-hover:text-brand-accent transition-colors">
-                  ${item.title}
-                </h4>
-              </div>
-              <p class="font-lato text-xs text-brand-accent font-medium">${item.koreanTitle}</p>
-              <p class="text-xs text-brand-muted line-clamp-2 leading-relaxed pt-1">
-                ${item.description}
-              </p>
-            </div>
-          </div>
-
-          <div class="px-5 pb-5 pt-3 border-t border-brand-border/40 flex items-center justify-between">
-            <span class="text-[11px] text-gray-400 font-unbounded">${item.profile}</span>
-            <button onclick="openModal('${item.id}')" class="text-xs font-unbounded text-brand-accent hover:underline font-semibold flex items-center gap-1">
-              Explore Notes →
-            </button>
-          </div>
-        `;
-                productGrid.appendChild(card);
+            const items = document.querySelectorAll('.accordion-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         }
 
-        // Initial Load
-        renderProducts();
+        // Search Input Logic
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            const filterText = this.value.toLowerCase();
+            const items = document.querySelectorAll('.accordion-item');
 
-        // 3. Tab Filter Handler
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                tabBtns.forEach(b => {
-                    b.className = 'tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-border bg-brand-card text-gray-300 hover:text-white hover:border-brand-accent/50 font-medium transition-all';
-                });
-                btn.className = 'tab-btn font-unbounded text-xs sm:text-sm px-5 py-2.5 rounded-full border border-brand-accent bg-brand-accent text-black font-semibold transition-all shadow-md shadow-brand-accent/20';
-
-                const cat = btn.getAttribute('data-category');
-                renderProducts(cat);
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(filterText)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         });
-
-        // 4. Modal Handler
-        const modal = document.getElementById('quickViewModal');
-        const modalBody = document.getElementById('modalBody');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const modalWaBtn = document.getElementById('modalWaBtn');
-
-        function openModal(id) {
-            const item = perfumeData.find(p => p.id === id);
-            if (!item) return;
-
-            modalBody.innerHTML = `
-        <div class="flex items-center gap-4">
-          <div class="w-24 h-24 bg-black/60 rounded-xl p-2 flex items-center justify-center border border-brand-border flex-shrink-0">
-            <img src="${item.image}" alt="${item.title}" class="max-h-full max-w-full object-contain" onerror="this.src='https://placehold.co/150x150/18181a/d4af37?text=Maison+Amare'">
-          </div>
-          <div>
-            <span class="inline-block font-unbounded text-[10px] text-brand-accent uppercase tracking-wider bg-brand-accent/10 px-2.5 py-0.5 rounded-full border border-brand-accent/30 mb-1">
-              ${item.code} • ${item.category.toUpperCase()}
-            </span>
-            <h3 class="font-unbounded font-bold text-lg text-white">${item.title}</h3>
-            <p class="text-xs text-brand-accent">${item.koreanTitle}</p>
-          </div>
-        </div>
-
-        <p class="text-xs text-brand-muted leading-relaxed">${item.description}</p>
-
-        <!-- Olfactory Pyramid Notes -->
-        <div class="bg-black/40 p-4 rounded-xl border border-brand-border space-y-2 text-xs">
-          <div class="flex justify-between border-b border-brand-border/40 pb-1">
-            <span class="text-gray-400 font-unbounded">Top Notes:</span>
-            <span class="text-white font-medium">${item.topNotes}</span>
-          </div>
-          <div class="flex justify-between border-b border-brand-border/40 pb-1">
-            <span class="text-gray-400 font-unbounded">Heart Notes:</span>
-            <span class="text-white font-medium">${item.heartNotes}</span>
-          </div>
-          <div class="flex justify-between border-b border-brand-border/40 pb-1">
-            <span class="text-gray-400 font-unbounded">Base Notes:</span>
-            <span class="text-white font-medium">${item.baseNotes}</span>
-          </div>
-          <div class="flex justify-between pt-1">
-            <span class="text-gray-400 font-unbounded">KPI Longevity:</span>
-            <span class="text-brand-accent font-semibold">${item.longevity}</span>
-          </div>
-        </div>
-      `;
-
-            modalWaBtn.href = `https://wa.me/+6282313349096?text=${encodeURIComponent('Hello Maison Amare Studio, I would like to reserve a session for blending the scent: ' + item.title + ' (' + item.koreanTitle + ')')}`;
-
-            modal.classList.remove('hidden');
-        }
-
-        closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) modal.classList.add('hidden');
-        });
-
-        // 5. Mobile Navigation Drawer Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuIcon = document.getElementById('menuIcon');
-        const closeIcon = document.getElementById('closeIcon');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            const isHidden = mobileMenu.classList.contains('hidden');
-            if (isHidden) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.classList.add('hidden');
-                closeIcon.classList.remove('hidden');
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-            }
-        });
-
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
-            });
-        });
-
-
     </script>
-
-
 </body>
 
 </html>
