@@ -574,17 +574,23 @@
 
 
   <script type='text/javascript'>
-    window.addEventListener('onEmbeddedMessagingReady', () => {
+    window.addEventListener('onEmbeddedMessagingReady', async () => {
       try {
         const cid = new URLSearchParams(window.location.search).get('cid');
 
+        // tanpa cid: biarkan widget berjalan normal, jangan auto-open
+        if (!cid) return;
 
+        // 1. set hidden field dulu
         embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
           ContactIdParam: cid
         });
 
+        // 2. baru buka chat otomatis
+        await embeddedservice_bootstrap.utilAPI.launchChat();
+
       } catch (err) {
-        console.error('Error setting hidden prechat: ', err);
+        console.error('Error setting hidden prechat / launching chat: ', err);
       }
     });
   </script>
