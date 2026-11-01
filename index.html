@@ -595,29 +595,34 @@
   </script> -->
 
   <script type='text/javascript'>
-    window.addEventListener('onEmbeddedMessagingReady', async () => {
-      const cid = new URLSearchParams(window.location.search).get('cid');
+    const cid = new URLSearchParams(window.location.search).get('cid');
+
+    // 1. Ready: set hidden field
+    window.addEventListener('onEmbeddedMessagingReady', () => {
       if (!cid) return;
+      try {
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+          ContactIdParam: cid
+        });
+        console.log('[MIAW] hidden field set:', cid);
+      } catch (err) {
+        console.error('[MIAW] gagal set hidden field:', err);
+      }
+    });
 
-      console.log('[MIAW] ready, cid =', cid);
-      console.log('[MIAW] utilAPI methods:', Object.keys(embeddedservice_bootstrap.utilAPI || {}));
-
-      embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-        ContactIdParam: cid
-      });
-
+    // 2. ButtonCreated: baru buka chat
+    window.addEventListener('onEmbeddedMessagingButtonCreated', async () => {
+      if (!cid) return;
       try {
         await embeddedservice_bootstrap.utilAPI.launchChat();
         console.log('[MIAW] launchChat OK');
-      } catch (e) {
-        console.error('[MIAW] launchChat gagal:', e);
-        // fallback: klik tombol chat bawaan
-        const btn = document.querySelector('.embeddedMessagingConversationButton');
-        console.log('[MIAW] tombol ditemukan?', !!btn);
-        btn?.click();
+      } catch (err) {
+        console.error('[MIAW] launchChat gagal:', err);
       }
     });
   </script>
+
+  <!-- lalu snippet bootstrap Anda di bawahnya -->
 
 </body>
 
