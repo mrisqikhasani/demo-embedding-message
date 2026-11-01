@@ -573,7 +573,7 @@
     onload='initEmbeddedMessaging()'></script>
 
 
-  <script type='text/javascript'>
+  <!-- <script type='text/javascript'>
     window.addEventListener('onEmbeddedMessagingReady', async () => {
       try {
         const cid = new URLSearchParams(window.location.search).get('cid');
@@ -590,6 +590,31 @@
         embeddedservice_bootstrap.settings.disableInlineAutoLaunch = true;
       } catch (err) {
         console.error('Error setting hidden prechat / launching chat: ', err);
+      }
+    });
+  </script> -->
+
+  <script type='text/javascript'>
+    window.addEventListener('onEmbeddedMessagingReady', async () => {
+      const cid = new URLSearchParams(window.location.search).get('cid');
+      if (!cid) return;
+
+      console.log('[MIAW] ready, cid =', cid);
+      console.log('[MIAW] utilAPI methods:', Object.keys(embeddedservice_bootstrap.utilAPI || {}));
+
+      embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+        ContactIdParam: cid
+      });
+
+      try {
+        await embeddedservice_bootstrap.utilAPI.launchChat();
+        console.log('[MIAW] launchChat OK');
+      } catch (e) {
+        console.error('[MIAW] launchChat gagal:', e);
+        // fallback: klik tombol chat bawaan
+        const btn = document.querySelector('.embeddedMessagingConversationButton');
+        console.log('[MIAW] tombol ditemukan?', !!btn);
+        btn?.click();
       }
     });
   </script>
