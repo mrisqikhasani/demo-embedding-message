@@ -587,8 +587,7 @@
         });
 
         // 2. baru buka chat otomatis
-        await embeddedservice_bootstrap.utilAPI.launchChat();
-
+        embeddedservice_bootstrap.settings.disableInlineAutoLaunch = true;
       } catch (err) {
         console.error('Error setting hidden prechat / launching chat: ', err);
       }
